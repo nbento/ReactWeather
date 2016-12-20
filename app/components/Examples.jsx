@@ -13,7 +13,7 @@ var Examples = React.createClass(
 
 var Examples = (props) => {
 	return (<div>
-				<h3>Examples Component</h3>
+				<h3>111111 5 Examples Component</h3>
 			</div>)
 }
 
