@@ -12,7 +12,9 @@ var Examples = React.createClass(
 */
 
 var Examples = (props) => {
-	return (<h3>2 Examples Component</h3>)
+	return (<div>
+				<h3>Examples Component</h3>
+			</div>)
 }
 
 module.exports = Examples;
