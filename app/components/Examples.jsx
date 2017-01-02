@@ -13,7 +13,7 @@ var Examples = React.createClass(
 
 var Examples = (props) => {
 	return (<div>
-				<h3>2016.12.22 Examples Component</h3>
+				<h3>2017.01.02 Examples</h3>
 			</div>)
 }
 
