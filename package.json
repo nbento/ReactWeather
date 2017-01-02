@@ -24,4 +24,5 @@
     "babel-preset-stage-0": "^6.16.0",
     "webpack": "^1.12.13"
   }
+  
 }
