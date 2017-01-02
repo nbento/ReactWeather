@@ -25,8 +25,8 @@ var Nav = () => {
 				<h2>1Title Nav!!!</h2>
 				<IndexLink to="/" activeClassName="active" activeStyle={{fontWeight:'bold'}}>GET WEATHER</IndexLink>
 				
-				<Link to="/about"activeClassName="active" activeStyle={{fontWeight:'bold'}}>ABOUT</Link>
-				<Link to="/examples"activeClassName="active" activeStyle={{fontWeight:'bold'}}>EXAMPLES</Link>
+				<Link to="/about" activeClassName="active" activeStyle={{fontWeight:'bold'}}>ABOUT</Link>
+				<Link to="/examples" activeClassName="active" activeStyle={{fontWeight:'bold'}}>EXAMPLES</Link>
 				
 				</div>
 			)
