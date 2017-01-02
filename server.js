@@ -11,13 +11,14 @@ const PORT = process.env.PORT || 3000;
 //Lec. 47 (Changes to use Heroku, from https to http),
 //TEM DE ESTAR ANTES DOS RESTANTES ELEMENTOS ABAIXO;
 app.use(function(req, res, next) {
-	if(req.headers['x-forwarded-proto'] === 'http') {
+	if(req.headers['x-forwarded-proto'] === 'https') {
 
-		next();
+		res.redirect('http://' + req.hostname + req.url);	
 		
 
 	} else {
-		res.redirect('http://' + req.hostname + req.url);
+		
+		next();
 	}
 });
 
