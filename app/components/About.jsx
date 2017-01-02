@@ -11,7 +11,7 @@ var About = React.createClass(
 });
 */
 var About = (props) => {
-	return (<h3>About 2017.01.02</h3>)
+	return (<h3>About 2017.01.02 BBB</h3>)
 }
 
 module.exports = About;
