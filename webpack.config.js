@@ -1,5 +1,26 @@
+var webpack = require('webpack'); 	//alteração para Foundation
+
 module.exports = {
-	entry: './app/app.jsx',
+	//entry: './app/app.jsx',
+	entry:  [ 	//alteração para Foundation: several entries
+				//script! »»» SÃO FILES JS COMUNS E NÃO WEBPACK MODULES;
+				'script!jquery/dist/jquery.min.js', 				//alteração para Foundation
+				'script!foundation-sites/dist/foundation.min.js', //alteração para Foundation
+				'./app/app.jsx'
+	],
+	externals: {			//alteração para Foundation
+		jquery: 'jQuery'    //útil para o module Foundation
+	},		
+	plugins: [ 				//alteração para Foundation
+		//
+		//Serve para para numa componente (Ex: About.jsx), ao utilizar o $(...)
+		//não ter de importar com require('...');
+		//Obriga a ter no topo a var webpack = require('webpack');
+		new webpack.ProvidePlugin({
+			'$': 'jquery',
+			'jQuery': 'jquery'
+		})
+	],	
 	output: {
 		path: __dirname,
 		filename: './public/bundle.js' 	//final output; o file index.html deve indicar este nome
