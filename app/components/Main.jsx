@@ -15,15 +15,19 @@ var Main = React.createClass(
 });
 */
 
-/*var Main = (props) => {
+var Main = (props) => {
 	return (<div>
-				<h2>4 Title Main Component!!!</h2>
-				<Nav  />
-				{props.children}
-			</div>
+						<Nav />
+						<div className="row">
+										<div className=" columns medium-6 large-4 small-centered">
+											{props.children}
+										</div>
+						</div>
+					</div>
 		)
 }
-*/
+
+/*
 var Main = React.createClass(
 {
 	mainHandleSearch: function(location)
@@ -34,11 +38,17 @@ var Main = React.createClass(
 	{
 		//<Nav navSearch={this.mainHandleSearch} />
 		return (<div>
-							<h2>4 Title Main Component!!!</h2>
+							<div className="row">
+									<div>
+
+									</div>
+							</div>
 							<Nav navSearch={this.mainHandleSearch} />
+							<h2>Main Component!!!</h2>
 							{this.props.children}
 						</div>
 			)
 	}
 });
+*/
 module.exports = Main;

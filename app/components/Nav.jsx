@@ -10,7 +10,8 @@ var Nav = React.createClass({
 				e.preventDefault();
 				var valor = this.refs.search_weather.value;
 				alert("-----------------" + valor);
-				this.props.navSearch(valor);
+				
+				//this.props.navSearch(valor);
 				//this.props.onSearch(valor);
 
 		},
