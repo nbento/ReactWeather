@@ -1,6 +1,6 @@
 var React = require('react');
 
-var Nav = require('Nav');  
+var Nav = require('Nav');
 /*
 var Main = React.createClass(
 {
@@ -15,13 +15,30 @@ var Main = React.createClass(
 });
 */
 
-var Main = (props) => {
+/*var Main = (props) => {
 	return (<div>
 				<h2>4 Title Main Component!!!</h2>
-				<Nav />
+				<Nav  />
 				{props.children}
-			</div>	
+			</div>
 		)
 }
-
+*/
+var Main = React.createClass(
+{
+	mainHandleSearch: function(location)
+	{
+		alert('mainHandleSearch   location' + location);
+	},
+	render: function()
+	{
+		//<Nav navSearch={this.mainHandleSearch} />
+		return (<div>
+							<h2>4 Title Main Component!!!</h2>
+							<Nav navSearch={this.mainHandleSearch} />
+							{this.props.children}
+						</div>
+			)
+	}
+});
 module.exports = Main;
