@@ -6,6 +6,7 @@ module.exports = {
 				//script! »»» SÃO FILES JS COMUNS E NÃO WEBPACK MODULES;
 				'script!jquery/dist/jquery.min.js', 				//alteração para Foundation
 				'script!foundation-sites/dist/foundation.min.js', //alteração para Foundation
+				//'css!foundation-sites/dist/foundation.min.css', //NR DESTA FORMA NÃO FUNCIONA
 				'./app/app.jsx'
 	],
 	externals: {			//alteração para Foundation

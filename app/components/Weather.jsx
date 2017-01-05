@@ -1,8 +1,8 @@
 var React = require("react");
 
-var WeatherForm = require("WeatherForm");
-var WeatherMessage = require("WeatherMessage");
-var openWeatherMap = require("openWeatherMap");
+var WeatherForm 	=  require("WeatherForm");
+var WeatherMessage 	=  require("WeatherMessage");
+var openWeatherMap 	=  require("openWeatherMap");
 
 var Weather = React.createClass(
 {
@@ -22,7 +22,7 @@ var Weather = React.createClass(
 		//debugger;
 		var valor = location;
 
-		this.setState({ isLoading:true });
+		this.setState({ isLoading:true }); 
 
 		//===============
 		//NOTA: aqui volta-se a utilizar o '.then'
@@ -74,7 +74,7 @@ var Weather = React.createClass(
 			//debugger;
 			if(isLoading)
 			{
-				return (<h3>Fetching Weather...</h3>);
+				return (<h3 className="text-center">Fetching Weather...</h3>);
 
 			} else if ( temp && location )
 			{
@@ -83,10 +83,10 @@ var Weather = React.createClass(
 		}
 
 		return (<div>
-							<h3>123Weather Component</h3>
-							<WeatherForm onSearch={this.handleSearch} />
-							<hr />
-							{renderMessage()}
+					<h1 className="text-center">Get Weather</h1>
+					<WeatherForm onSearch={this.handleSearch} />
+					<hr />
+					{renderMessage()}
 				</div>)
 	}
 });
