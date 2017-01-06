@@ -3,6 +3,7 @@ var React = require("react");
 var WeatherForm 	=  require("WeatherForm");
 var WeatherMessage 	=  require("WeatherMessage");
 var openWeatherMap 	=  require("openWeatherMap");
+var ErrorModal 		=  require("ErrorModal");
 
 var Weather = React.createClass(
 {
@@ -16,31 +17,38 @@ var Weather = React.createClass(
 	},
 	handleSearch: function(location)
 	{
-		//console.log("location:::"  +  location);
+		console.log("WHEATHER  handleSearch  location:::"  +  location);
 
 		var that = this;
 		//debugger;
 		var valor = location;
 
-		this.setState({ isLoading:true }); 
+		this.setState({ isLoading:true,
+						errorMessage: undefined
+					 }); 
 
 		//===============
 		//NOTA: aqui volta-se a utilizar o '.then'
 		openWeatherMap.getTemp(location).then(
 			function(temp)
 			{
-				console.log('fUNC. handleSearch  temp::: ' + temp);
-
+ 				console.log('WHEATHER  handleSearch  temp::: ' + temp);
+				
 				that.setState({
 					location: location,
 					temp: temp,
 					isLoading: false
 				});
 			},
-			function(errorMessage)
+			function(e)
 			{
-				console.log('errorMessage::: ' + errorMessage);
-				that.setState({isLoading: false });
+				console.log('WHEATHER  handleSearch ERROR' + e.message);
+
+				that.setState({
+					isLoading: false,
+					errorMessage: e.message
+				});
+				//alert('errorMessage::: ' + errorMessage);
 			}
 		);
 		//=============== COM => OPERATOR
@@ -67,7 +75,7 @@ var Weather = React.createClass(
 	},
 	render: function()
 	{
-		var {isLoading, temp, location} = this.state;
+		var {isLoading, temp, location, errorMessage} = this.state;
 
 		function renderMessage()
 		{
@@ -82,11 +90,20 @@ var Weather = React.createClass(
 			}
 		}
 
+		function renderError()
+		{
+			if( typeof errorMessage === 'string' )
+			{
+				return (<ErrorModal message={errorMessage} />)
+			}	
+		}	
+
 		return (<div>
 					<h1 className="text-center">Get Weather</h1>
 					<WeatherForm onSearch={this.handleSearch} />
-					<hr />
+					
 					{renderMessage()}
+					{renderError()}
 				</div>)
 	}
 });
