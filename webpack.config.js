@@ -38,7 +38,7 @@ module.exports = {
 				Examples:'app/components/Examples.jsx',
 				openWeatherMap:'app/api/openWeatherMap.jsx',
 				ErrorModal:'app/components/ErrorModal.jsx',
-				applicationStyles:'app/styles/app.css' 		//Lec.58
+				applicationStyles:'app/styles/app.scss' 		//Lec.58
 				
 		},
 		extensions: ['', '.js', '.jsx']  //Deixa de ser necessário indicar a extensão no require
