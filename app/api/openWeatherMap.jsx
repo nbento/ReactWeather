@@ -24,16 +24,22 @@ module.exports = {
 			function(res)
 			{
 				//debugger;
-				if( res.data.cod  &&  res.data.message )
+				if( res.data.cod  &&  res.data.message )   //update Lec. 57
+				//if( res.data.cod )
 				{
-					throw new Error(res.data.message);
+					//console.log("openWeatherMap.jsx  res.data.cod  &&  res.data.message:::"  +  res.data.message);
+					//throw new Error(res.data.message);
+					throw new Error('111 Unable to fetch weather for that location'); 	//update Lec. 57
 				}else{
+					console.log("openWeatherMap.jsx  res.data.main.temp:::"  +  res.data.main.temp);
 					return res.data.main.temp;
 				}	
 			},
 			function(res)
 			{
-				throw new Error(res.data.message);
+				console.log("openWeatherMap.jsx  Error:::"  +  "Unable to fetch weather for that location");
+				//throw new Error(res.data.message);
+				throw new Error('222 Unable to fetch weather for that location');  //update Lec. 57
 			}
 		);	
 	}

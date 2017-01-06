@@ -13,7 +13,7 @@ var About = React.createClass(
 var About = (props) => {
 	return (
 		<div>
-				<h1 className="text-center">About</h1>
+				<h1 className="text-center page-title">About</h1>
 				<p>(Not Important...) Welcome to the About page!</p>
 
 		</div>)
