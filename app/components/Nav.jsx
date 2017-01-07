@@ -8,12 +8,33 @@ var Nav = React.createClass({
 		onSearch: function(e)
 		{
 				e.preventDefault();
-				var valor = this.refs.search_weather.value;
-				alert("-----------------" + valor);
-				
-				//this.props.navSearch(valor);
-				//this.props.onSearch(valor);
+				//........... 
+				var location = this.refs.search_weather.value;
+				console.log('Nav  location:::' + location);
+				//........... ENCODE URL
+				var encodedLocation = encodeURIComponent(location);
+				//........... 
+				if(location.length > 0) 
+				{
+					console.log('Nav  if(location.length > 0');
+					console.log('Nav  encodedLocation:::' + encodedLocation);
+					//........... Reset
+					this.refs.search_weather.value = '';
+					//........... 
+					//Apenas este código, não funciona, na Weather.jsx.
+					//Mas quando está em Examples.jsx, já funciona.
+					//Isto acontece, porque quando já está na component
+					//Wheather.jsx, o method componentDidMount, 
+					//NÃO PODE DETECTAR, porque já ocorreu,
+					//é preciso indicar que houve uma modificação posterior.
+					//SOLUÇÃO: componentWillReceiveProps
+					window.location.hash = "#/?location=" + encodedLocation;
+					//........... 
 
+				}
+				
+				//.......... EXAMPLES.JSX LINKS, == AOS BTN'S DO ROUTER
+				//<Link to="/?location=Rio">Rio, Brasil</Link>
 		},
 		render: function()
 		{

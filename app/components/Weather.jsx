@@ -23,9 +23,12 @@ var Weather = React.createClass(
 		//debugger;
 		var valor = location;
 
-		this.setState({ isLoading:true,
-						errorMessage: undefined
-					 }); 
+		this.setState({ 
+			isLoading: true,
+			errorMessage: undefined,
+			location: undefined,
+			temp: undefined
+		 }); 
 
 		//===============
 		//NOTA: aqui volta-se a utilizar o '.then'
@@ -72,6 +75,33 @@ var Weather = React.createClass(
 		//this.setState({location: location,
 		//				temp: 23
 		//			});
+	},
+	componentDidMount: function() 
+	{
+		var location = this.props.location.query.location;
+		console.log('Wheather.jsx  componentDidMount  location:::' + this.props.location);
+		console.log('Wheather.jsx  componentDidMount  location.query.location:::' + this.props.location.query.location);
+		
+		if ( location && location.length > 0 )
+		{
+			this.handleSearch(location);
+
+			//Reset url
+			window.location.hash = '#/';
+		}
+	},
+ 	componentWillReceiveProps: function(newProps)
+	{
+		var location = newProps.location.query.location;
+		//console.log('Wheather.jsx  componentWillMount  location:::' + this.props.location);
+		
+		if ( location && location.length > 0 )
+		{
+			this.handleSearch(location);
+
+			//Reset url
+			window.location.hash = '#/';
+		}
 	},
 	render: function()
 	{
