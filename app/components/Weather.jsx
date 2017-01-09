@@ -90,6 +90,7 @@ var Weather = React.createClass(
 			window.location.hash = '#/';
 		}
 	},
+	//............. QUANDO A PESQUISA É FEITA NA NAV.JSX
  	componentWillReceiveProps: function(newProps)
 	{
 		var location = newProps.location.query.location;
